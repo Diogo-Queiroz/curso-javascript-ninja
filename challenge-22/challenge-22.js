@@ -2,7 +2,14 @@
   Crie dois objetos, que serão duas pessoas. Cada um deve ter as propriedades
   `name` e `lastName`, preenchidos com o nome e sobrenome da pessoa.
   */
-  // ?
+  var ironMan = {
+    name: 'Tony',
+    lastName: 'Stark'
+  };
+  var captainAmerica = {
+    name: 'Steve',
+    lastName: 'Rogers'
+  };
 
   /*
   Agora crie uma função chamada `getFullName` que retorne as propriedades
@@ -16,7 +23,11 @@
   contexto da função. Use um console.log por pessoa.
   */
   console.log( 'O nome das pessoas é:' );
-  // ?
+  function getFullName() {
+    return this.name + ' ' + this.lastName;
+  }
+  console.log(getFullName.call(ironMan));
+  console.log(getFullName.call(captainAmerica));
 
   /*
   Crie uma função chamada `sum`. Essa função pode receber uma lista de
@@ -25,14 +36,21 @@
   Na primeira linha, dentro da função, deixe um console.log para mostrar todos
   os parâmetros passados para essa função.
   */
-  // ?
+  function sum(args) {
+    console.log(args);
+    console.log(args.reduce(function(acc, atual) {
+      return acc + atual;
+    }));
+    console.log(this.length);
+  }
 
   /*
   Mostre no console que a função acima funciona, invocando-a em 3 console.log
   diferentes, com quantidades variáveis de parâmetros passados.
   */
   console.log( '\nSomar alguns números:' );
-  // ?
+  sum.call(sum, [2,3,6,5,8]);
+  sum.apply(sum, [2,3,6,5,8]);
 
   /*
   Declare uma variável chamada `userEntry`, que irá receber alguns valores
