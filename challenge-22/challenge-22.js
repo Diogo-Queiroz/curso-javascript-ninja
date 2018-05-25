@@ -1,3 +1,5 @@
+(function(win, doc){
+  'use strict'
   /*
   Crie dois objetos, que serão duas pessoas. Cada um deve ter as propriedades
   `name` e `lastName`, preenchidos com o nome e sobrenome da pessoa.
@@ -57,7 +59,13 @@
   entrados pelo usuário. Mostre para o usuário a seguinte frase:
   "Entre com alguns números que serão somados:"
   */
-  // ?
+  var $inputNumbers = doc.querySelector('[data-js="numbers"]');
+  var userEntry = $inputNumbers.split();
+  var $button = doc.querySelector('data-js="somar"]');
+  $button.addEventListener('click', function(e) {
+    e.preventDefault();
+    alert("Números digitados", $inputNumbers);
+  });
 
   /*
   Mostre no console o valor entrado pelo usuário:
@@ -86,3 +94,4 @@
   */
   console.log( '\nSomar números entrados pelo usuário:' );
   // ?
+})(window, document);
