@@ -1,3 +1,4 @@
+/*eslint-disable no-invalid-this */
 (function(win, doc){
   'use strict'
   /*
@@ -38,12 +39,12 @@
   Na primeira linha, dentro da função, deixe um console.log para mostrar todos
   os parâmetros passados para essa função.
   */
-  function sum(args) {
-    console.log(args);
-    console.log(args.reduce(function(acc, atual) {
-      return acc + atual;
-    }));
-    console.log();
+  function sum() {
+    console.log(Array.prototype.join.call(arguments, ', '));
+    let result = Array.prototype.reduce.call(arguments, function(acc, att) {
+      return acc + att;
+    });
+    console.log(result);
   }
 
   /*
@@ -51,20 +52,21 @@
   diferentes, com quantidades variáveis de parâmetros passados.
   */
   console.log( '\nSomar alguns números:' );
-  sum.call(sum, [2,3,6,5,8]);
-  //sum.apply(sum, 2,3,6,5,8);
+  sum(2, 3, 6, 5, 8, 18);
+  sum(2, 3, 6, 5, 8);
+  sum(5, 3, 8, 23, 455);
 
   /*
   Declare uma variável chamada `userEntry`, que irá receber alguns valores
   entrados pelo usuário. Mostre para o usuário a seguinte frase:
   "Entre com alguns números que serão somados:"
   */
-  var $inputNumbers = doc.querySelector('[data-js="numbers"]');
-  //var userEntry = $inputNumbers.split();
-  var $button = doc.querySelector('[data-js="somar"]');
+  var $inputNumbers = doc.querySelector('input[type="text"]');
+  //var userEntry = $inputNumbers.value.split(' ');
+  var $button = doc.querySelector('button[data-js="somar"]');
   $button.addEventListener('click', function(e) {
     e.preventDefault();
-    alert("Números digitados", $inputNumbers.value);
+    alert("Números digitados " + $inputNumbers.value);
   });
 
   /*
@@ -79,14 +81,18 @@
   da string. Mostre a representação em string dessa função no console.
   */
   console.log( '\nFunção que limpa entrada do usuário (somente números):' );
-  // ?
+  function justNumbers(texto) {
+    var regex = /\d+/;
+    console.log(texto.match(regex));
+  }
 
   /*
   Usando a função acima, faça a limpeza dos valores entrados pelo usuário,
   atribuindo o resultado à uma variável `numbers`.
   */
   console.log( '\nEntrada do usuário limpa. Somente números:' );
-  // ?
+  //console.log(justNumbers(123drefdf455frg76));
+  justNumers(123ert456);
 
   /*
   Agora com o array de números, utilize a função `sum` para somar todos os
