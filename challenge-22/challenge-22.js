@@ -43,7 +43,7 @@
     console.log(args.reduce(function(acc, atual) {
       return acc + atual;
     }));
-    console.log(this.length);
+    console.log();
   }
 
   /*
@@ -52,7 +52,7 @@
   */
   console.log( '\nSomar alguns números:' );
   sum.call(sum, [2,3,6,5,8]);
-  sum.apply(sum, [2,3,6,5,8]);
+  //sum.apply(sum, 2,3,6,5,8);
 
   /*
   Declare uma variável chamada `userEntry`, que irá receber alguns valores
@@ -60,18 +60,18 @@
   "Entre com alguns números que serão somados:"
   */
   var $inputNumbers = doc.querySelector('[data-js="numbers"]');
-  var userEntry = $inputNumbers.split();
-  var $button = doc.querySelector('data-js="somar"]');
+  //var userEntry = $inputNumbers.split();
+  var $button = doc.querySelector('[data-js="somar"]');
   $button.addEventListener('click', function(e) {
     e.preventDefault();
-    alert("Números digitados", $inputNumbers);
+    alert("Números digitados", $inputNumbers.value);
   });
 
   /*
   Mostre no console o valor entrado pelo usuário:
   */
   console.log( '\nEntrada do usuário:' );
-  // ?
+  console.log($inputNumbers.value);
 
   /*
   Crie uma função chamada `justNumbers`, que recebe por parâmetro uma string
