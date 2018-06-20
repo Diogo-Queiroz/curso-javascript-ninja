@@ -35,6 +35,11 @@
 				width: 45px;
 				height: 45px;
 				margin: auto;
+				border-radius: 7px;
+				box-shadow: 1px 1px 0.5px rgba(0, 0, 0, 0.5);
+			}
+			.calc-btn:hover {
+				background-color: #03efd5;
 			}
 		</style>
 	</head>
@@ -43,18 +48,23 @@
 		<form class='form-central'>
 			<input class='input-calc' type="number" value=0><br />
 			<div class='calc-keypad'>
+				<button class='calc-btn' type="button"><i class='fas fa-undo'></i></button>
+				<button class='calc-btn' type="button"><i class='fas fa-divide'></i></button>
+				<button class='calc-btn' type="button"><i class='fas fa-times'></i></button>
+				<button class='calc-btn' type="button"><i class='fas fa-minus'></i></button>
+				<button class='calc-btn' type="button"><i class='fas fa-plus'></i></button>
+				<button class='calc-btn' type="button"><i class='fas fa-equals'></i></button>
 				<input class='calc-btn' type="button" value="7"/>
 				<input class='calc-btn' type="button" value="8"/>
 				<input class='calc-btn' type="button" value="9"/>
-				<input class='calc-btn' type="button" value="-"/>
 				<input class='calc-btn' type="button" value="4"/>
 				<input class='calc-btn' type="button" value="5"/>
 				<input class='calc-btn' type="button" value="6"/>
-				<button class='calc-btn' type="button"><i class='fas fa-minus'></i></button>
 				<input class='calc-btn' type="button" value="1"/>
 				<input class='calc-btn' type="button" value="2"/>
 				<input class='calc-btn' type="button" value="3"/>
-				<input class='calc-btn' type="button" value="enter"/>
+				<input class='calc-btn' type="button" value="0"/>
+				
 			</div>
 		</form>
 		<script src='challenge-23.js'></script>
