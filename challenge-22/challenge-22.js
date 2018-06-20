@@ -61,19 +61,22 @@
   entrados pelo usuário. Mostre para o usuário a seguinte frase:
   "Entre com alguns números que serão somados:"
   */
-  var $inputNumbers = doc.querySelector('input[type="text"]');
-  //var userEntry = $inputNumbers.value.split(' ');
+  var $inputNumbers = '';
   var $button = doc.querySelector('button[data-js="somar"]');
-  $button.addEventListener('click', function(e) {
-    e.preventDefault();
-    alert("Números digitados " + $inputNumbers.value);
-  });
-
+  
   /*
   Mostre no console o valor entrado pelo usuário:
   */
-  console.log( '\nEntrada do usuário:' );
-  console.log($inputNumbers.value);
+  $button.addEventListener('click', function (e) {
+    e.preventDefault();
+    $inputNumbers = doc.querySelector('input[type="text"');
+    console.log('\nEntrada do usuário:');
+    console.log($inputNumbers.value);
+    console.log('\nFunção que limpa entrada do usuário (somente números):');
+    var onlyNum = justNumbers($inputNumbers.value);
+    console.log('\nSomar números entrados pelo usuário:');
+    sum(onlyNum);
+  });
 
   /*
   Crie uma função chamada `justNumbers`, que recebe por parâmetro uma string
@@ -92,7 +95,7 @@
   */
   console.log( '\nEntrada do usuário limpa. Somente números:' );
   //console.log(justNumbers(123drefdf455frg76));
-  justNumers(123ert456);
+  justNumbers('123ert456');
 
   /*
   Agora com o array de números, utilize a função `sum` para somar todos os
