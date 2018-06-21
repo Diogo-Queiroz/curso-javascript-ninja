@@ -14,7 +14,7 @@
 				width: 200px;
 				display: block;
 				margin: auto;
-				border: 1px solid black;
+				border: 2px solid black;
 			}
 			.input-calc {
 				width: 190px;
@@ -28,8 +28,8 @@
 				display: flex;
 				justify-content: space-between;
 				flex-wrap: wrap;
-				height: 200px;
-				border: 1px solid black;
+				height: 250px;
+				border: 2px solid black;
 			}
 			.calc-btn {
 				width: 45px;
@@ -41,6 +41,12 @@
 			.calc-btn:hover {
 				background-color: #03efd5;
 			}
+      .btn-wide-3 {
+        width: 145px;
+      }
+      .btn-wide-2 {
+        width: 95px;
+      }
 		</style>
 	</head>
 	
@@ -48,22 +54,22 @@
 		<form class='form-central'>
 			<input class='input-calc' type="number" value=0><br />
 			<div class='calc-keypad'>
-				<button class='calc-btn' type="button"><i class='fas fa-undo'></i></button>
+				<button class='calc-btn btn-wide-3' type="button"><i class='fas fa-undo'></i></button>
 				<button class='calc-btn' type="button"><i class='fas fa-divide'></i></button>
-				<button class='calc-btn' type="button"><i class='fas fa-times'></i></button>
-				<button class='calc-btn' type="button"><i class='fas fa-minus'></i></button>
-				<button class='calc-btn' type="button"><i class='fas fa-plus'></i></button>
-				<button class='calc-btn' type="button"><i class='fas fa-equals'></i></button>
-				<input class='calc-btn' type="button" value="7"/>
-				<input class='calc-btn' type="button" value="8"/>
-				<input class='calc-btn' type="button" value="9"/>
-				<input class='calc-btn' type="button" value="4"/>
-				<input class='calc-btn' type="button" value="5"/>
-				<input class='calc-btn' type="button" value="6"/>
-				<input class='calc-btn' type="button" value="1"/>
-				<input class='calc-btn' type="button" value="2"/>
-				<input class='calc-btn' type="button" value="3"/>
-				<input class='calc-btn' type="button" value="0"/>
+				<input class='calc-btn' type="button" value="7" data-js="btn7" />
+				<input class='calc-btn' type="button" value="8" data-js="btn8"/>
+				<input class='calc-btn' type="button" value="9" data-js="btn9"/>
+        <button class='calc-btn' type="button"><i class='fas fa-times'></i></button>
+				<input class='calc-btn' type="button" value="4" data-js="btn4"/>
+				<input class='calc-btn' type="button" value="5" data-js="btn5"/>
+				<input class='calc-btn' type="button" value="6" data-js="btn6"/>
+        <button class='calc-btn' type="button"><i class='fas fa-minus'></i></button>
+				<input class='calc-btn' type="button" value="1" data-js="btn1"/>
+				<input class='calc-btn' type="button" value="2" data-js="btn2"/>
+				<input class='calc-btn' type="button" value="3" data-js="btn3"/>
+        <button class='calc-btn' type="button"><i class='fas fa-plus'></i></button>
+        <input class='calc-btn btn-wide-3' type="button" value="0" data-js="btn0"/>
+        <button class='calc-btn' type="button"><i class='fas fa-equals'></i></button>
 				
 			</div>
 		</form>
