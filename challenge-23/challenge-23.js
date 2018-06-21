@@ -1,21 +1,39 @@
 (function(win, doc) {
 	'use strict'
+	var btnfunc = [];
   var botoes = {
-    0: doc.querySelector('input[data-js=btn0').value,
-    1: doc.querySelector('input[data-js=btn1').value,
-    2: doc.querySelector('input[data-js=btn2').value,
-    3: doc.querySelector('input[data-js=btn3').value,
-    4: doc.querySelector('input[data-js=btn4').value,
-    5: doc.querySelector('input[data-js=btn5').value,
-    6: doc.querySelector('input[data-js=btn6').value,
-    7: doc.querySelector('input[data-js=btn7').value,
-    8: doc.querySelector('input[data-js=btn8').value,
-    9: doc.querySelector('input[data-js=btn9').value
+    '0': doc.querySelector('input[data-js=btn0]'),
+    '1': doc.querySelector('input[data-js=btn1]'),
+    '2': doc.querySelector('input[data-js=btn2]'),
+    '3': doc.querySelector('input[data-js=btn3]'),
+    '4': doc.querySelector('input[data-js=btn4]'),
+    '5': doc.querySelector('input[data-js=btn5]'),
+    '6': doc.querySelector('input[data-js=btn6]'),
+    '7': doc.querySelector('input[data-js=btn7]'),
+    '8': doc.querySelector('input[data-js=btn8]'),
+    '9': doc.querySelector('input[data-js=btn9]')
+  };
+  var $keypad = doc.querySelectorAll('input[type=submit]');
+  var $operators = doc.querySelectorAll('button[type=submit]');
+  console.log(botoes);
+  console.log($keypad);
+  console.log($operators);
+  
+  for (var i = 0; i < Object.values(botoes).length; i++) {
+    botoes[i].addEventListener('click', 
+      function(e) {
+        e.preventDefault();
+        addNumber.call(botoes[i]);
+      }
+    );
   }
-  var $btn = doc.querySelector('input[type=button]');
-  $btn.addEventListener('click', function () {
-    console.log('Clickado no ' + this.value);
-  });
+  
+  function addNumber() {
+    console.log(this);
+  }
+  
+  //console.log(Object.values($btn));
+  //console.log(Object.keys($btn));
 	/*
 	Vamos desenvolver mais um projeto. A ideia é fazer uma mini-calculadora.
 	As regras são:

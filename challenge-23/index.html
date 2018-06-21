@@ -28,6 +28,7 @@
 				display: flex;
 				justify-content: space-between;
 				flex-wrap: wrap;
+				flex-direction: row;
 				height: 250px;
 				border: 2px solid black;
 			}
@@ -41,12 +42,28 @@
 			.calc-btn:hover {
 				background-color: #03efd5;
 			}
-      .btn-wide-3 {
-        width: 145px;
-      }
-      .btn-wide-2 {
-        width: 95px;
-      }
+			.btn-wide-3 {
+				width: 145px;
+			}
+			.btn-height-2 {
+				height: 95px;
+			}
+			.calc-keypad :nth-child(1) { order: 0; }
+			.calc-keypad :nth-child(2) { order: 1; }
+			.calc-keypad :nth-child(3) { order: 5; }
+			.calc-keypad :nth-child(4) { order: 9; }
+			.calc-keypad :nth-child(5) { order: 13; }
+			.calc-keypad :nth-child(6) { order: 15; }
+			.calc-keypad :nth-child(7) { order: 4; }
+			.calc-keypad :nth-child(8) { order: 3; }
+			.calc-keypad :nth-child(9) { order: 2; }
+			.calc-keypad :nth-child(10) { order: 8; }
+			.calc-keypad :nth-child(11) { order: 7; }
+			.calc-keypad :nth-child(12) { order: 6; }
+			.calc-keypad :nth-child(13) { order: 12; }
+			.calc-keypad :nth-child(14) { order: 11; }
+			.calc-keypad :nth-child(15) { order: 10; }
+			.calc-keypad :nth-child(16) { order: 14; }
 		</style>
 	</head>
 	
@@ -54,23 +71,22 @@
 		<form class='form-central'>
 			<input class='input-calc' type="number" value=0><br />
 			<div class='calc-keypad'>
-				<button class='calc-btn btn-wide-3' type="button"><i class='fas fa-undo'></i></button>
-				<button class='calc-btn' type="button"><i class='fas fa-divide'></i></button>
-				<input class='calc-btn' type="button" value="7" data-js="btn7" />
-				<input class='calc-btn' type="button" value="8" data-js="btn8"/>
-				<input class='calc-btn' type="button" value="9" data-js="btn9"/>
-        <button class='calc-btn' type="button"><i class='fas fa-times'></i></button>
-				<input class='calc-btn' type="button" value="4" data-js="btn4"/>
-				<input class='calc-btn' type="button" value="5" data-js="btn5"/>
-				<input class='calc-btn' type="button" value="6" data-js="btn6"/>
-        <button class='calc-btn' type="button"><i class='fas fa-minus'></i></button>
-				<input class='calc-btn' type="button" value="1" data-js="btn1"/>
-				<input class='calc-btn' type="button" value="2" data-js="btn2"/>
-				<input class='calc-btn' type="button" value="3" data-js="btn3"/>
-        <button class='calc-btn' type="button"><i class='fas fa-plus'></i></button>
-        <input class='calc-btn btn-wide-3' type="button" value="0" data-js="btn0"/>
-        <button class='calc-btn' type="button"><i class='fas fa-equals'></i></button>
-				
+				<button class='calc-btn btn-wide-3' type="submit"><i class='fas fa-undo'></i></button>
+				<button class='calc-btn' type="submit"><i class='fas fa-divide'></i></button>
+        <button class='calc-btn' type="submit"><i class='fas fa-plus'></i></button>
+        <button class='calc-btn' type="submit"><i class='fas fa-times'></i></button>
+        <button class='calc-btn' type="submit"><i class='fas fa-minus'></i></button>
+        <button class='calc-btn' type="submit"><i class='fas fa-equals'></i></button>
+				<input class='calc-btn' type="submit" value="9" data-js="btn9"/>
+				<input class='calc-btn' type="submit" value="8" data-js="btn8"/>
+				<input class='calc-btn' type="submit" value="7" data-js="btn7" />
+				<input class='calc-btn' type="submit" value="6" data-js="btn6"/>
+				<input class='calc-btn' type="submit" value="5" data-js="btn5"/>
+				<input class='calc-btn' type="submit" value="4" data-js="btn4"/>
+				<input class='calc-btn' type="submit" value="3" data-js="btn3"/>
+				<input class='calc-btn' type="submit" value="2" data-js="btn2"/>
+				<input class='calc-btn' type="submit" value="1" data-js="btn1"/>
+        <input class='calc-btn btn-wide-3' type="submit" value="0" data-js="btn0"/>
 			</div>
 		</form>
 		<script src='challenge-23.js'></script>
