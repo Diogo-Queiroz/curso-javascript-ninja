@@ -21,16 +21,16 @@
 				calcInput.value = 0;
 				break;
 			case 'sum':
-				calcInput.value += insertOperator(calcInput.value, operatorSymbols[this.value]);
+				insertOperator(operatorSymbols[this.value]);
 				break;
 			case 'subtract':
-				calcInput.value += operatorSymbols[this.value];
+				insertOperator(operatorSymbols[this.value]);
 				break;
 			case 'divide':
-				calcInput.value += operatorSymbols[this.value];
+				insertOperator(operatorSymbols[this.value]);
 				break;
 			case 'multiply':
-				calcInput.value += operatorSymbols[this.value];
+				insertOperator(operatorSymbols[this.value]);
 				break;
 			case 'equals':
 				//result = calculate(calcInput.value);
@@ -57,15 +57,20 @@
 	}
 	
 	function insertOperator(operator) {
-		var inputSize = calcInput.value.length - 1;
+    var inputSize = calcInput.value.length - 1;
+    var inputArray = calcInput.value.split('');
 		console.log("Input from Calc -> " + calcInput.value);
 		console.log("Operator send from btn -> " + operator);
-		console.log("last char from input -> " + calcInput.value[inputSize]);
+    console.log("last char from input -> " + calcInput.value[inputSize]);
+    console.log('Array do Input -> ' + inputArray);
 		if (calcInput.value[inputSize] === '*' || 
 				calcInput.value[inputSize] === '+' || 
 				calcInput.value[inputSize] === '-' || 
 				calcInput.value[inputSize] === '/') {
-					calcInput.value.pop().push(operator);
+          inputArray.pop();
+          inputArray.push(operator);
+          calcInput.value = inputArray.join('');
+					//calcInput.value.pop().push(operator);
 				}
 		else {
 			calcInput.value += operator;
