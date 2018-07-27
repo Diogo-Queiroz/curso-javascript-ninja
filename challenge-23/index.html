@@ -69,24 +69,56 @@
 	
 	<body>
 		<form class='form-central'>
-			<input class='input-calc' type="number" value=0><br />
+			<input class='input-calc' type="text" value=0 disabled><br />
 			<div class='calc-keypad'>
-				<button class='calc-btn btn-wide-3' type="submit"><i class='fas fa-undo'></i></button>
-				<button class='calc-btn' type="submit"><i class='fas fa-divide'></i></button>
-        <button class='calc-btn' type="submit"><i class='fas fa-plus'></i></button>
-        <button class='calc-btn' type="submit"><i class='fas fa-times'></i></button>
-        <button class='calc-btn' type="submit"><i class='fas fa-minus'></i></button>
-        <button class='calc-btn' type="submit"><i class='fas fa-equals'></i></button>
-				<input class='calc-btn' type="submit" value="9" data-js="btn9"/>
-				<input class='calc-btn' type="submit" value="8" data-js="btn8"/>
-				<input class='calc-btn' type="submit" value="7" data-js="btn7" />
-				<input class='calc-btn' type="submit" value="6" data-js="btn6"/>
-				<input class='calc-btn' type="submit" value="5" data-js="btn5"/>
-				<input class='calc-btn' type="submit" value="4" data-js="btn4"/>
-				<input class='calc-btn' type="submit" value="3" data-js="btn3"/>
-				<input class='calc-btn' type="submit" value="2" data-js="btn2"/>
-				<input class='calc-btn' type="submit" value="1" data-js="btn1"/>
-        <input class='calc-btn btn-wide-3' type="submit" value="0" data-js="btn0"/>
+				<button class='calc-btn btn-wide-3' type="button" value='clear'>
+					<i class='fas fa-undo'></i>
+				</button>
+				<button class='calc-btn' type="button" value='divide'>
+					<i class='fas fa-divide'></i>
+				</button>
+				<button class='calc-btn' type="button" value='sum'>
+					<i class='fas fa-plus'></i>
+				</button>
+				<button class='calc-btn' type="button" value='multiply'>
+					<i class='fas fa-times'></i>
+				</button>
+				<button class='calc-btn' type="button" value='subtract'>
+					<i class='fas fa-minus'></i>
+				</button>
+				<button class='calc-btn' type="button" value='equals'>
+					<i class='fas fa-equals'></i>
+				</button>
+				<button class='calc-btn' type="button" value="9" data-js="btn9">
+					9
+				</button>
+				<button class='calc-btn' type="button" value="8" data-js="btn8">
+					8
+				</button>
+				<button class='calc-btn' type="button" value="7" data-js="btn7">
+					7
+				</button>
+				<button class='calc-btn' type="button" value="6" data-js="btn6">
+					6
+				</button>
+				<button class='calc-btn' type="button" value="5" data-js="btn5">
+					5
+				</button>
+				<button class='calc-btn' type="button" value="4" data-js="btn4">
+					4
+				</button>
+				<button class='calc-btn' type="button" value="3" data-js="btn3">
+					3
+				</button>
+				<button class='calc-btn' type="button" value="2" data-js="btn2">
+					2	
+				</button>
+				<button class='calc-btn' type="button" value="1" data-js="btn1">
+					1	
+				</button>
+        <button class='calc-btn btn-wide-3' type="button" value="0" data-js="btn0">
+        	0
+        </button>
 			</div>
 		</form>
 		<script src='challenge-23.js'></script>

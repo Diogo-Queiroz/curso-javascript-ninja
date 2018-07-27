@@ -1,39 +1,76 @@
 (function(win, doc) {
 	'use strict'
-	var btnfunc = [];
-  var botoes = {
-    '0': doc.querySelector('input[data-js=btn0]'),
-    '1': doc.querySelector('input[data-js=btn1]'),
-    '2': doc.querySelector('input[data-js=btn2]'),
-    '3': doc.querySelector('input[data-js=btn3]'),
-    '4': doc.querySelector('input[data-js=btn4]'),
-    '5': doc.querySelector('input[data-js=btn5]'),
-    '6': doc.querySelector('input[data-js=btn6]'),
-    '7': doc.querySelector('input[data-js=btn7]'),
-    '8': doc.querySelector('input[data-js=btn8]'),
-    '9': doc.querySelector('input[data-js=btn9]')
-  };
-  var $keypad = doc.querySelectorAll('input[type=submit]');
-  var $operators = doc.querySelectorAll('button[type=submit]');
-  console.log(botoes);
-  console.log($keypad);
-  console.log($operators);
-  
-  for (var i = 0; i < Object.values(botoes).length; i++) {
-    botoes[i].addEventListener('click', 
-      function(e) {
-        e.preventDefault();
-        addNumber.call(botoes[i]);
-      }
-    );
-  }
-  
-  function addNumber() {
-    console.log(this);
-  }
-  
-  //console.log(Object.values($btn));
-  //console.log(Object.keys($btn));
+	var calcInput = doc.querySelector('[type="text"]');
+	var btnList = doc.querySelectorAll('[type="button"]');
+	for (var i = 0; i < btnList.length; i++) {
+		btnList[i].addEventListener('click', printValue, false);
+	}
+	var result = 0;
+	var operatorSymbols = {
+		'sum': '+',
+		'subtract': '-',
+		'divide': '/',
+		'multiply': '*'
+	};
+	
+	function printValue() {
+		console.log(this.value);
+		console.log(calcInput.value);
+		switch (this.value) {
+			case 'clear':
+				calcInput.value = 0;
+				break;
+			case 'sum':
+				calcInput.value += insertOperator(calcInput.value, operatorSymbols[this.value]);
+				break;
+			case 'subtract':
+				calcInput.value += operatorSymbols[this.value];
+				break;
+			case 'divide':
+				calcInput.value += operatorSymbols[this.value];
+				break;
+			case 'multiply':
+				calcInput.value += operatorSymbols[this.value];
+				break;
+			case 'equals':
+				//result = calculate(calcInput.value);
+				result = cleanInput(calcInput.value);
+				calcInput.value = result;
+				break;
+			default:
+				calcInput.value += this.value;
+		}
+		console.log(calcInput.value);
+	}
+	
+	function calculate(inputFromCalculator) {
+		return inputFromCalculator + 5;
+	}
+	
+	
+	function cleanInput(input) {
+		var NumRegex = /\d+/g;
+		var OperandRegex = /\D/g; // ['-', '+', '*', '/'].sort() -> ["*", "+", "-", "/"]
+		console.log(input.match(NumRegex));
+		console.log(input.match(OperandRegex));
+		return 0;
+	}
+	
+	function insertOperator(operator) {
+		var inputSize = calcInput.value.length - 1;
+		console.log("Input from Calc -> " + calcInput.value);
+		console.log("Operator send from btn -> " + operator);
+		console.log("last char from input -> " + calcInput.value[inputSize]);
+		if (calcInput.value[inputSize] === '*' || 
+				calcInput.value[inputSize] === '+' || 
+				calcInput.value[inputSize] === '-' || 
+				calcInput.value[inputSize] === '/') {
+					calcInput.value.pop().push(operator);
+				}
+		else {
+			calcInput.value += operator;
+		}
+	}
 	/*
 	Vamos desenvolver mais um projeto. A ideia é fazer uma mini-calculadora.
 	As regras são:
