@@ -51,8 +51,11 @@
 	function cleanInput(input) {
 		var NumRegex = /\d+/g;
 		var OperandRegex = /\D/g; // ['-', '+', '*', '/'].sort() -> ["*", "+", "-", "/"]
-		console.log(input.match(NumRegex));
-		console.log(input.match(OperandRegex));
+    var numeros = input.match(NumRegex);
+    var operacoes = input.match(OperandRegex);
+		console.log(numeros);
+    console.log(operacoes);
+    console.log(+numeros[0] + +numeros[1]);
 		return 0;
 	}
 	
