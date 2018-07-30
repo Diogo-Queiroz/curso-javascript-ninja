@@ -1,10 +1,8 @@
 (function(win, doc) {
 	'use strict'
+	// Variáveis
 	var calcInput = doc.querySelector('[type="text"]');
 	var btnList = doc.querySelectorAll('[data-js="btn"]');
-	for (var i = 0; i < btnList.length; i++) {
-		btnList[i].addEventListener('click', printValue, false);
-	}
 	var result = 0;
 	var operatorSymbols = {
 		'sum': '+',
@@ -12,7 +10,13 @@
 		'divide': '/',
 		'multiply': '*'
 	};
+
+	// For para inserir nos botoes as funções
+	for (var i = 0; i < btnList.length; i++) {
+		btnList[i].addEventListener('click', printValue, false);
+	}
 	
+
 	function printValue() {
 		switch (this.value) {
 			case 'clear':
@@ -32,34 +36,28 @@
 				break;
 			case 'equals':
 				//result = calculate(calcInput.value);
-				cleanInput(calcInput.value);
+				calcInput.value = calculate(calcInput.value);
+				break;
+			case '0':
+				beganWithZero(this.value);
 				break;
 			default:
-				calcInput.value += this.value;
+				beganWithZero(this.value);
+				break;
 		}
-		console.log(calcInput.value);
 	}
 	
+	function beganWithZero(num) {
+		if (calcInput.value.length === 1 && calcInput.value[0] === '0')
+			calcInput.value = num;
+		else 
+			calcInput.value += num;
+	}
+
 	function calculate(inputFromCalculator) {
-		return inputFromCalculator + 5;
+		return eval(inputFromCalculator);
 	}
-	
-	
-	function cleanInput(input) {
-		var NumRegex = /\d+/g;
-		var OperandRegex = /\D/g; // ['-', '+', '*', '/'].sort() -> ["*", "+", "-", "/"]
-		var inputArray = input.split('');
-    var numeros = input.match(NumRegex);
-    var operacoes = input.match(OperandRegex);
-		console.log(numeros);
-		console.log(operacoes);
-		if (numeros.length === operacoes.length) {
-			inputArray.pop();
-		}
-		calcInput.value = inputArray.join('');
-    console.log(+numeros[0] + +numeros[1]);
-	}
-	
+		
 	function insertOperator(operator) {
     var inputSize = calcInput.value.length - 1;
     var inputArray = calcInput.value.split('');
