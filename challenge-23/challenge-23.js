@@ -1,7 +1,7 @@
 (function(win, doc) {
 	'use strict'
 	var calcInput = doc.querySelector('[type="text"]');
-	var btnList = doc.querySelectorAll('[type="button"]');
+	var btnList = doc.querySelectorAll('[data-js="btn"]');
 	for (var i = 0; i < btnList.length; i++) {
 		btnList[i].addEventListener('click', printValue, false);
 	}
@@ -14,8 +14,6 @@
 	};
 	
 	function printValue() {
-		console.log(this.value);
-		console.log(calcInput.value);
 		switch (this.value) {
 			case 'clear':
 				calcInput.value = 0;
@@ -34,8 +32,7 @@
 				break;
 			case 'equals':
 				//result = calculate(calcInput.value);
-				result = cleanInput(calcInput.value);
-				calcInput.value = result;
+				cleanInput(calcInput.value);
 				break;
 			default:
 				calcInput.value += this.value;
@@ -51,29 +48,26 @@
 	function cleanInput(input) {
 		var NumRegex = /\d+/g;
 		var OperandRegex = /\D/g; // ['-', '+', '*', '/'].sort() -> ["*", "+", "-", "/"]
+		var inputArray = input.split('');
     var numeros = input.match(NumRegex);
     var operacoes = input.match(OperandRegex);
 		console.log(numeros);
-    console.log(operacoes);
+		console.log(operacoes);
+		if (numeros.length === operacoes.length) {
+			inputArray.pop();
+		}
+		calcInput.value = inputArray.join('');
     console.log(+numeros[0] + +numeros[1]);
-		return 0;
 	}
 	
 	function insertOperator(operator) {
     var inputSize = calcInput.value.length - 1;
     var inputArray = calcInput.value.split('');
-		console.log("Input from Calc -> " + calcInput.value);
-		console.log("Operator send from btn -> " + operator);
-    console.log("last char from input -> " + calcInput.value[inputSize]);
-    console.log('Array do Input -> ' + inputArray);
-		if (calcInput.value[inputSize] === '*' || 
-				calcInput.value[inputSize] === '+' || 
-				calcInput.value[inputSize] === '-' || 
-				calcInput.value[inputSize] === '/') {
+		if (calcInput.value[inputSize] === '*' || calcInput.value[inputSize] === '+' || 
+				calcInput.value[inputSize] === '-' || calcInput.value[inputSize] === '/') {
           inputArray.pop();
           inputArray.push(operator);
           calcInput.value = inputArray.join('');
-					//calcInput.value.pop().push(operator);
 				}
 		else {
 			calcInput.value += operator;
