@@ -3,29 +3,94 @@
 <head>
   <meta charset="utf-8">
   <title>Challenge 24 - Calculator</title>
+  <meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
+	<style type="text/css">
+		* {
+			font-family: 'Kavivanar', cursive;
+		}
+		.form-central {
+			width: 200px;
+			display: block;
+			margin: auto;
+			border: 2px solid black;
+		}
+		.input-calc {
+			width: 190px;
+			display: block;
+			margin: auto;
+			margin-top: 5px;
+			text-align: right;
+			height: 25px;
+		}
+		.calc-keypad {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			flex-direction: row;
+			height: 250px;
+			border: 2px solid black;
+		}
+		.calc-btn {
+			width: 45px;
+			height: 45px;
+			margin: auto;
+			border-radius: 7px;
+			box-shadow: 1px 1px 0.5px rgba(0, 0, 0, 0.5);
+		}
+		.calc-btn:hover {
+			background-color: #03efd5;
+		}
+		.btn-wide-3 {
+			width: 145px;
+		}
+		.btn-height-2 {
+			height: 95px;
+		}
+		.calc-keypad :nth-child(1) { order: 14; } /* 0 */
+		.calc-keypad :nth-child(2) { order: 10; } /* 1 */
+		.calc-keypad :nth-child(3) { order: 11; } /* 2 */
+		.calc-keypad :nth-child(4) { order: 12; } /* 3 */
+		.calc-keypad :nth-child(5) { order: 6; } /* 4 */
+		.calc-keypad :nth-child(6) { order: 7; } /* 5 */
+		.calc-keypad :nth-child(7) { order: 8; } /* 6 */
+		.calc-keypad :nth-child(8) { order: 2; } /* 7 */
+		.calc-keypad :nth-child(9) { order: 3; } /* 8 */
+		.calc-keypad :nth-child(10) { order: 4; } /* 9 */
+		.calc-keypad :nth-child(11) { order: 13; } /* + */
+		.calc-keypad :nth-child(12) { order: 9; } /* - */
+		.calc-keypad :nth-child(13) { order: 5; } /* * */
+		.calc-keypad :nth-child(14) { order: 1; } /* / */
+		.calc-keypad :nth-child(15) { order: 15; } /* = */
+		.calc-keypad :nth-child(16) { order: 0; } /* CE */
+	</style>
 </head>
-<body>
-  <input type="text" value="0" readonly data-js="visor">
-  <div class="buttons-numbers">
-    <button data-js="button-number" value="0">0</button>
-    <button data-js="button-number" value="1">1</button>
-    <button data-js="button-number" value="2">2</button>
-    <button data-js="button-number" value="3">3</button>
-    <button data-js="button-number" value="4">4</button>
-    <button data-js="button-number" value="5">5</button>
-    <button data-js="button-number" value="6">6</button>
-    <button data-js="button-number" value="7">7</button>
-    <button data-js="button-number" value="8">8</button>
-    <button data-js="button-number" value="9">9</button>
-  </div>
-
-  <div class="operations">
-    <button data-js="button-operation" value="+">+</button>
-    <button data-js="button-operation" value="-">-</button>
-    <button data-js="button-operation" value="x">x</button>
-    <button data-js="button-operation" value="÷">÷</button>
-    <button data-js="button-equal" value="=">=</button>
-    <button data-js="button-ce" value="ce">CE</button>
+<body class='form-central'>
+  <input class='input-calc' type="text" value="0" readonly data-js="visor">
+  <div class='calc-keypad'>
+    <!--<div class="buttons-numbers">-->
+      <button class='calc-btn btn-wide-3' data-js="button-number" value="0">0</button>
+      <button class='calc-btn' data-js="button-number" value="1">1</button>
+      <button class='calc-btn' data-js="button-number" value="2">2</button>
+      <button class='calc-btn' data-js="button-number" value="3">3</button>
+      <button class='calc-btn' data-js="button-number" value="4">4</button>
+      <button class='calc-btn' data-js="button-number" value="5">5</button>
+      <button class='calc-btn' data-js="button-number" value="6">6</button>
+      <button class='calc-btn' data-js="button-number" value="7">7</button>
+      <button class='calc-btn' data-js="button-number" value="8">8</button>
+      <button class='calc-btn' data-js="button-number" value="9">9</button>
+    <!--</div>-->
+  
+    <!--<div class="operations">-->
+      <button class='calc-btn' data-js="button-operation" value="+">+</button>
+      <button class='calc-btn' data-js="button-operation" value="-">-</button>
+      <button class='calc-btn' data-js="button-operation" value="x">x</button>
+      <button class='calc-btn' data-js="button-operation" value="÷">÷</button>
+      <button class='calc-btn' data-js="button-equal" value="=">=</button>
+      <button class='calc-btn btn-wide-3' data-js="button-ce" value="ce">CE</button>
+    <!--</div>-->
   </div>
 
   <script src="challenge-24.js"></script>
