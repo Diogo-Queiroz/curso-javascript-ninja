@@ -18,16 +18,22 @@
   var $buttonCE = doc.querySelector('[data-js="button-ce"]');
   var $buttonEqual = doc.querySelector('[data-js="button-equal"]');
   
+  function initialize() {
+    initEvents();
+  }
+  
+  function initEvents() {
+    addEventToButton($buttonsNumbers, handleClickNumber);
+    addEventToButton($buttonsOperations, handleClickOperation);
+    $buttonCE.addEventListener('click', handleClickCE, false);
+    $buttonEqual.addEventListener('click', handleClickEqual, false);
+  }
+  
   function addEventToButton(button, event) {
     Array.prototype.forEach.call(button, function(button) {
       button.addEventListener('click', event, false);
     });
   }
-  
-  addEventToButton($buttonsNumbers, handleClickNumber);
-  addEventToButton($buttonsOperations, handleClickOperation);
-  $buttonCE.addEventListener('click', handleClickCE, false);
-  $buttonEqual.addEventListener('click', handleClickEqual, false);
   
   function handleClickNumber() {
     $visor.value += this.value;
@@ -85,4 +91,6 @@
         return firstNum / lastNum;
     }
   }
+  
+  initialize();
 })(window, document);
