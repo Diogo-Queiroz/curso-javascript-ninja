@@ -61,12 +61,16 @@
     $visor.value = removeLastItemIfItIsAnOperator($visor.value);
     var allValues = $visor.value.match(/\d+[+x÷-]?/g);
     $visor.value = allValues.reduce(function(accumulated, actual) {
-      var firstValue = accumulated.slice(0, -1);
-      var operator = accumulated.split('').pop();
-      var lastValue = removeLastItemIfItIsAnOperator(actual);
-      var lastOperator = isLastItemAnOperation(actual) ? actual.split('').pop() : '';
-      return calculate(Number(firstValue), Number(lastValue), operator) + lastOperator;
+      return preCalculo(accumulated, actual)
     });
+  }
+  
+  function preCalculo(accumulated, actual) {
+    var firstValue = accumulated.slice(0, -1);
+    var operator = accumulated.split('').pop();
+    var lastValue = removeLastItemIfItIsAnOperator(actual);
+    var lastOperator = isLastItemAnOperation(actual) ? actual.split('').pop() : '';
+    return calculate(Number(firstValue), Number(lastValue), operator) + lastOperator;
   }
   
   function calculate(firstNum, lastNum, operator) {
