@@ -49,10 +49,16 @@
   }
   
   function isLastItemAnOperation(number) {
-    var operations = ['+', '-', 'x', '÷'];
+    var operations = getOperations();
     var lastItem = number.split('').pop();
     return operations.some(function(operator) {
       return operator === lastItem;
+    });
+  }
+  
+  function getOperations() {
+    return Array.prototype.map.call($buttonsOperations, function(button) {
+      return button.value;
     });
   }
   
@@ -65,10 +71,14 @@
   
   function handleClickEqual() {
     $visor.value = removeLastItemIfItIsAnOperator($visor.value);
-    var allValues = $visor.value.match(/\d+[+x÷-]?/g);
+    var allValues = $visor.value.match(regexOperations());
     $visor.value = allValues.reduce(function(accumulated, actual) {
       return preCalculo(accumulated, actual)
     });
+  }
+  
+  function regexOperations() {
+    return new RegExp('\\d+[' + getOperations().join('') + ']?', 'g');
   }
   
   function preCalculo(accumulated, actual) {
