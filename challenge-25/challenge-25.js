@@ -32,7 +32,7 @@
 		this.classList.add('valid');
 	});*/
 
-	let $allInputs = doc.querySelectorAll("input");
+	let $allInputs = doc.querySelectorAll('[data-js="form-input"]');
 
 	Array.prototype.forEach.call($allInputs, function(input) {
 		input.addEventListener('focus', function() {
