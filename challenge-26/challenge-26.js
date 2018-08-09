@@ -22,18 +22,23 @@
   */
   // ?
   function DOM(Node) {
-    Node = doc.querySelector(Node);
+    this.element = doc.querySelectorAll(Node);
+    console.log(this.element);
 
     this.on = function(event, callback) {
-      Node.addEventListener(event, callback, false);
+      Array.prototype.forEach.call(this.element, function(node) {
+        node.addEventListener(event, callback, false);
+      });
     }
 
     this.off = function(event, callback) {
-      Node.removeEventListener(event, callback);
+      Array.prototype.forEach.call(this.element, function(node) {
+        node.removeEventListener(event, callback);
+      });      
     }
 
     this.get = function() {
-      return Node.childNodes;
+      return this.element;
     }
   }
 
