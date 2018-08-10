@@ -23,23 +23,22 @@
   // ?
   function DOM(Node) {
     this.element = doc.querySelectorAll(Node);
-    console.log(this.element);
+  }
 
-    this.on = function(event, callback) {
-      Array.prototype.forEach.call(this.element, function(node) {
-        node.addEventListener(event, callback, false);
-      });
-    }
+  DOM.prototype.on = function(event, callback) {
+    Array.prototype.forEach.call(this.element, function(node) {
+      node.addEventListener(event, callback, false);
+    });
+  }
 
-    this.off = function(event, callback) {
-      Array.prototype.forEach.call(this.element, function(node) {
-        node.removeEventListener(event, callback);
-      });      
-    }
+  DOM.prototype.off = function(event, callback) {
+    Array.prototype.forEach.call(this.element, function(node) {
+      node.removeEventListener(event, callback);
+    });      
+  }
 
-    this.get = function() {
-      return this.element;
-    }
+  DOM.prototype.get = function() {
+    return this.element;
   }
 
   function clickar(e) {
